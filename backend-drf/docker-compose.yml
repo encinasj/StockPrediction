@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django_backend
+    # Auto-crea el proyecto si no existe manage.py, luego migra y arranca
+    command: >
+      sh -c "if [ ! -f manage.py ]; then
+               django-admin startproject stock_prediction_main .;
+             fi &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+      # Persistir la base de datos SQLite (usaremos /app/data/db.sqlite3 en settings.py)
+      - sqlite_data:/app/data
+    ports:
+      - "8000:8000"
+    environment:
+      DEBUG: "1"
+      SECRET_KEY: "django-insecure-your-secret-key-here"
+      DJANGO_ALLOWED_HOSTS: "localhost,127.0.0.1,backend"
+    networks:
+      - app-network
+
+volumes:
+  sqlite_data:
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+.env
+.env.*
+.vscode/
+.idea/
+.git/
+staticfiles/
+media/
+node_modules/
+dist/
