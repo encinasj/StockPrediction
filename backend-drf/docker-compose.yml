@@ -10,7 +10,7 @@ services:
                django-admin startproject stock_prediction_main .;
              fi &&
              python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+             python manage.py runserver 127.0.0.1:8000"
     volumes:
       - .:/app
       # Persistir la base de datos SQLite (usaremos /app/data/db.sqlite3 en settings.py)
