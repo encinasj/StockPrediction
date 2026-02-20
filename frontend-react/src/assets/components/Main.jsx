@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+
 const Main = () => {
   return (
     <>
@@ -7,7 +8,7 @@ const Main = () => {
         <div className='p-5 text-center text-light bg-light-dark rounded-3'>
           <h1 className='text-light'>Stock prediction portal</h1>
           <p className='text-light lead'> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, quam ullam voluptatem, magnam molestiae voluptate animi beatae perferendis itaque dolores explicabo, inventore nisi. Ullam, modi! Impedit veritatis alias illo explicabo.</p>
-           <Button  text='Logion now' class="btn-outline-info" />
+           <Button  text='Login now' class="btn-outline-info" url='/login'/>
         </div>
       </div>
     </>
