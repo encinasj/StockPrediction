@@ -1,18 +1,10 @@
 import {useContext} from 'react'
 import Button from './Button'
 import { AuthContext } from '../../AuthProvider'
-import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
   const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
-  const navigate = useNavigate();
-  const handleLogout = () =>{
-    localStorage.removeItem('accessToken')
-    localStorage.removeItem('refreshToken')
-    setIsLoggedIn(false)
-    console.log('Logout');
-    navigate('/Login')
-  }
+
   return (
     <>
       <div className='container'>
@@ -22,11 +14,11 @@ const Main = () => {
             {isLoggedIn ? (
               <>
                 <span className='bg-success rounded-3 lead'>Congratulations! You are now registered.</span>
-                <br />
-                <button className='btn btn-danger'  onClick={handleLogout}>Logout</button>
+                <br /> 
+                <Button  text='Explore now' class="btn-outline-info"  url='/dashboard'/>
               </>
               ):(
-              <>
+                <>
                 <Button  text='Login now' class="btn-outline-info" url='/login'/>
               </>
             )}

@@ -21,7 +21,7 @@ const Header = () => {
             {isLoggedIn ? (
               <>
                 <span>Loggout</span>
-                <button className='btn btn-danger' onClick={handleLogout}>Logout</button>
+                <button className='btn btn-outline-danger' onClick={handleLogout}>Logout</button>
               </>
             ):(
               <>              
