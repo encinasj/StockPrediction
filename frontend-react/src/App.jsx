@@ -18,9 +18,16 @@ function App() {
         <Header/>
           <Routes>
             <Route path='/' element={<Main/>} />
-            <Route path='/register' element={<PublicRoute><Register/></PublicRoute>} />
-            <Route path='/login' element={<PublicRoute><Login/></PublicRoute>} />
-            <Route path='/dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>} />
+            <Route element={<PublicRoute />}>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+            </Route>
+
+
+            {/* Grupo de rutas privadas */}
+            <Route element={<PrivateRoute />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
           </Routes>
         <Footer/>
       </BrowserRouter>

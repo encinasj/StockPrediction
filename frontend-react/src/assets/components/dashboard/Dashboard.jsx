@@ -15,6 +15,7 @@ const Dashboard = () => {
         fetchProtectedData();
     }, [])
   return (
+    
     <div className='container text-light'>Dashboard</div>
   )
 }
